@@ -10,3 +10,10 @@
 *no ai use permitted*
 
 *before pushing the new code please run and test the code yourself*
+
+# todo :
+
+- [ ] adding core features
+- [ ] initial skeleton
+- [ ] adding built in help
+
