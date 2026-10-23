@@ -14,6 +14,6 @@
 # todo :
 
 - [ ] adding core features
-- [ ] initial skeleton
+- [✅] initial skeleton
 - [ ] adding built in help
 
