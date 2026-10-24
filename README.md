@@ -16,4 +16,5 @@
 - [ ] adding core features
 - [✅] initial skeleton
 - [ ] adding built in help
+- [ ] actually making the first release
 
