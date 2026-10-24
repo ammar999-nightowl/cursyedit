@@ -10,3 +10,21 @@ string Buffer::remTabs(string line)
   else 
     return remTabs(line.replace(tab, 1, "    "));
 }
+
+void Buffer::insertLine(string line, int n)
+{
+  line = remTabs(line); //conversion happens btw
+  lines.insert(lines.begin()+n, line);
+}
+
+void Buffer::appendLine(string line)
+{
+  line = remTabs(line);
+  lines.push_back(line);
+
+}
+
+void Buffer::removeLine(int n)
+{
+  lines.erase(lines.begin()+n);
+}
