@@ -76,4 +76,23 @@ string Editor::tos(int i)
 
 }
 
-// TODO add input handler
+void Editor::handleInput(int c)
+{
+  switch(c)
+  {
+    case KEY_LEFT:
+      moveLeft();
+      return;
+    case KEY_RIGHT:
+      moveRight();
+      return;
+    case KEY_UP:
+      moveUp();
+      return;
+    case KEY_DOWN:
+      moveDown();
+      return;
+  }
+  //TODO implement mode related things
+}
+
