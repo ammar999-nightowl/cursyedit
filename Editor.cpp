@@ -93,6 +93,67 @@ void Editor::handleInput(int c)
       moveDown();
       return;
   }
-  //TODO implement mode related things
+  switch(mode)
+  {
+    case 'n':
+      switch(c)
+      {
+        case 'x':
+          mode = 'x'; //exit mode
+          break;
+        case 'i':
+          mode = 'i'; //enter mode or input mode
+          break;
+        case 's':
+          mode = 's'; //file saving mode
+          break;
+      }
+      break;
+    case 'i':
+      switch(c)
+      {
+        case 27:
+          //alt/esc key btw
+          mode = 'n';
+          break;
+        case 127:
+        case KEY_BACKSPACE:
+          //backspace key btw
+          if (x == 0 && y > 0)
+          {
+            x = buff->lines[y-1].length();
+            //bring the line down 
+            buff->lines[y-1] += buff->lines[y];
+            //deletes the current line
+            deleteLine();
+            moveUp();
+          }
+          else
+          {
+            //remove a character
+            buff->lines[y].erase(--x, 1);
+
+          }
+          break;
+        case KEY_DC:
+          //delete key btw
+          if(x == buff->lines[y].length() && y != buff->lines.size() - 1)
+          {
+            //bring the line down
+            buff->lines[y] += buff->lines[y+1];
+            //delete the line
+            deleteLine(y+1);
+          }
+          else
+          {
+            buff->lines[y].erase(x, 1);
+
+          }
+          break;
+        case KEY_ENTER:
+        case 10:
+          //TODO enter key logic
+      }
+  }
 }
 
